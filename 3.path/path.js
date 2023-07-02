@@ -14,11 +14,11 @@ console.log('path.sep: ', path.sep)
 
 // parse 解析路径并返回对象 __filename是文件的绝对路径
 console.log('__filename: ', __filename)
-let str = '/Users/xcasx/Projects/Node/尚硅谷2023版/3.path/path.js'
+let str = '/../3.path/path.js'
 console.log('path.parse: ', path.parse(str))
 // path.parse:  {
 //   root: '/',
-//   dir: '/Users/xcasx/Projects/Node/尚硅谷2023版/3.path',
+//   dir: '/../3.path',
 //   base: 'path.js',
 //   ext: '.js',
 //   name: 'path'
