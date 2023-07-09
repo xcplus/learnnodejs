@@ -58,3 +58,16 @@ const mimes = {
 // 对于未知的资源类型，可以选择application/octet-stream类型, 浏览器在遇到该类型的响应时，会对响应体
 // 内容进行独立存储，也就是我们常见的下载效果
 ```
+
+### 导入模块的基本流程
+require 导入 自定义模块 的基本流程.
+1. 将相对路径转为绝对路径，定位目标文件
+2. 缓存检测
+3. 读取目标文件代码
+4. 包裹为一个函数并执行(自执行函数). 通过 arguments.callee.toString() 查看自执行函数
+5. 缓存模块的值
+6. 返回 module.exports 的值
+
+### CommonJS 规范
+module.exports\exports\require 这些都是 CommonJS 模块化规范中的内容.
+而 Node.js 是实现了 CommonJS 模块化规范，二者关系有点像 Javascript 与 ECMAScript
