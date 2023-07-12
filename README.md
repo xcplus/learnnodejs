@@ -1,3 +1,5 @@
+https://www.bilibili.com/video/BV1gM411W7ex/?p=106&spm_id_from=pageDriver&vd_source=26a4aad2cbda10f889b9011c4ba6bbcc
+
 ### 文件写入场景
 1. 下载文件
 2. 安装软件
@@ -6,6 +8,11 @@
 5. 视频录制
 
 ** 当持久化保存数据的时候，应该想到文件写入
+
+
+registry=https://registry.npmmirror.com/
+
+pnpm set registry https://registry.npmmirror.com/
 
 ### 读取文件的应用场景
 1. 电脑开机
@@ -71,3 +78,76 @@ require 导入 自定义模块 的基本流程.
 ### CommonJS 规范
 module.exports\exports\require 这些都是 CommonJS 模块化规范中的内容.
 而 Node.js 是实现了 CommonJS 模块化规范，二者关系有点像 Javascript 与 ECMAScript
+
+### 包管理工具
+
+#### 1. 概念介绍
+  ##### 1.1 包是什么
+  代表了一组特定功能的源码集合
+  ##### 1.2 包管理工具
+  管理包的应用软件，可以对包进行下载安装、更新、删除、上传等操作
+  借助包管理工具，可以快速开发项目，提升开发效率
+  包管理工具是一个通用的概念，很多编程语言都有包管理工具，所以掌握好包管理工具非常重要
+  ##### 1.3 常用的包管理工具
+  - npm
+  - yarn
+  - pnpm
+  - cnpm
+#### 2. npm
+  ##### 2.1 介绍
+  npm 全称 Node Package Manager， 中文是Node的包管理工具
+  npm 是 node.js 官方内置的包管理工具，是必须掌握的工具
+  ##### 2.2 npm 的安装
+  node.js 在安装时会自动安装 npm， 所以如果安装了 node.js, 可以直接使用 npm
+  可以通过 npm -v 查看版本号测试，如果显示版本号说明安装成功，反之安装失败
+
+  ###### 2.2.1 初始化
+  创建一个空目录，然后以此目录作为工作目录启动命令行工具，执行 npm init
+  npm init 命令的作用是将文件夹初始化一个包，交互式创建 package.json 文件
+  package.json 是包的配置文件，每个包都必须要有 package.json
+  ```javascript
+  {
+    "name": "test", // 包名 不能使用中文、大写，默认是文件夹名称，所以文件夹名称也不能有中文和大写
+    "version": "1.0.0", // 包的版本 要求 x.x.x 的形式定义，x必须是数字，默认是1.0.0
+    "description": "学习npm", // 包的描述
+    "main": "index.js", // 包的入口文件
+    "scripts": { // 脚本配置
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "", // 作者
+    "license": "ISC" // 开源证书
+  }
+  ```
+  ###### 2.2.2 搜索包
+  有两种方式:
+  1. 命令行 `npm s/search 字符串`
+  2. 网站搜索 网址是 (https://www.npmjs.com/)[https://www.npmjs.com/]
+  ###### 2.2.3 下载安装包
+  npm install <包名>
+  npm i <包名>
+  ###### 2.2.4 require 导入 npm 包基本流程
+  1. 当前文件夹下 node_modules 中寻找同名的文件夹
+  2. 在上级目录中下的 node_modules 中寻找同名的文件夹，直至找到磁盘根目录
+
+### express 中间件
+  1. 什么是中间件
+  中间件(Middleware)本质是一个回调函数
+  中间件函数可以像路由回调一样访问 `请求对象(request)`、`响应对象(response)`
+  2. 中间件的作用
+  中间件的作用就是使用函数封装公共操作，简化代码
+  3. 中间件的类型
+  · 全局中间件
+  · 路由中间件
+
+  3.1  定义全局中间件
+    每一个请求到达服务端之后都会执行全局中间件函数
+    声明中间件函数
+    ```javascript
+      let recordMiddleware = function(request, response, next) {
+        // 实现功能代码
+        // ...
+        // 执行next函数(当如果希望执行完中间件函数之后，仍然继续执行路由中的回调函数，必须调用next)
+        next()
+      }
+    ```
+
