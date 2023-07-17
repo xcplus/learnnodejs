@@ -151,3 +151,16 @@ module.exports\exports\require 这些都是 CommonJS 模块化规范中的内容
       }
     ```
 
+### RESTful API
+是一种特殊风格的接口，主要特点有如下几个:
+1. URL中的路径表示资源，路径中不能有动词，例如create、update、delete等这些都不能有
+2. 操作资源要与HTTP请求方法对应
+3. 操作结果要与HTTP响应状态码对应
+
+
+### cookie
+1. cookie是HTTP服务器发送到用户浏览器并保存在本地的一小块数据
+cookie 是保存在浏览器端的一小块数据
+cookie 是按照域名划分保存的
+2. cookie的特点: 浏览器向服务器发送请求时，会自动将当前域名下可用的cookie设置在请求头中，然后传递给服务器
+
